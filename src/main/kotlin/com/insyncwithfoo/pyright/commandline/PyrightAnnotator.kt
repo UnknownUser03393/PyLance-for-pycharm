@@ -150,7 +150,6 @@ internal class PyrightAnnotator : ExternalAnnotator<InitialInfo, AnnotationResul
             val problemHighlightType = highlightSeverity.toProblemHighlightType()
             val builder = holder.newAnnotation(highlightSeverity, message)
             
-            builder.needsUpdateOnTyping()
             builder.tooltip(tooltip)
             builder.range(range)
             
