@@ -7,7 +7,7 @@ import org.eclipse.lsp4j.InitializeParams
 import org.eclipse.lsp4j.WorkspaceFolder
 
 
-internal class PyrightLsp4ijClientFeatures : LSPClientFeatures() {
+internal class PyrightClientFeatures : LSPClientFeatures() {
 
     @Suppress("DEPRECATION")
     override fun initializeParams(params: InitializeParams) {

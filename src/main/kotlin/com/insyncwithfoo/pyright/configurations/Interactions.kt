@@ -84,7 +84,12 @@ internal val Project.pyrightLangserverExecutable: Path?
 
 
 internal fun Project.resolveConfigurationFileWorkspaceRoot(): Path? {
-    val configFileString = pyrightConfigurations.configurationFile ?: return null
+    val configurations = pyrightConfigurations
+    if (!configurations.useConfigurationFileInLspModes) {
+        return null
+    }
+
+    val configFileString = configurations.configurationFile ?: return null
     val configFilePath = configFileString.toPathOrNull() ?: return null
 
     val resolved = when {

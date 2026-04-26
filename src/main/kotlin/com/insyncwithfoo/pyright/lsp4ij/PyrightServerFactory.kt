@@ -46,7 +46,7 @@ internal class PyrightServerFactory : LanguageServerFactory, LanguageServerEnabl
     }
     
     @Suppress("UnstableApiUsage")
-    override fun createClientFeatures() = PyrightLsp4ijClientFeatures().apply {
+    override fun createClientFeatures() = PyrightClientFeatures().apply {
         hoverFeature = HoverFeature()
         diagnosticFeature = DiagnosticFeature()
         completionFeature = CompletionFeature()
