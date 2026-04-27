@@ -95,7 +95,7 @@ internal class PyrightConfigurations : DisplayableState(), Copyable {
     var languageServerExecutable by string(null)
     var smartLanguageServerExecutableResolution by property(false)
     var configurationFile by string(null)
-    var useConfigurationFileInLspModes by property(false)
+    var useConfigurationFileInLSPModes by property(false)
     var runningMode by enum(RunningMode.LSP)
     
     var autoRestartServers by property(true)

@@ -58,8 +58,8 @@ private fun Row.configurationFileInput(block: Cell<TextFieldWithBrowseButton>.()
     singleFileTextField().makeFlexible().apply(block)
 
 
-private fun Row.useConfigurationFileInLspModesInput(block: Cell<JBCheckBox>.() -> Unit) =
-    checkBox(message("configurations.useConfigurationFileInLspModes.label")).apply(block)
+private fun Row.useConfigurationFileInLSPModesInput(block: Cell<JBCheckBox>.() -> Unit) =
+    checkBox(message("configurations.useConfigurationFileInLSPModes.label")).apply(block)
 
 
 private fun Panel.runningModeInputGroup(block: Panel.() -> Unit) =
@@ -219,8 +219,8 @@ private fun PyrightPanel.makeComponent() = panel {
         overrideCheckbox(state::configurationFile)
     }
     row("") {
-        useConfigurationFileInLspModesInput { bindSelected(state::useConfigurationFileInLspModes) }
-        overrideCheckbox(state::useConfigurationFileInLspModes)
+        useConfigurationFileInLSPModesInput { bindSelected(state::useConfigurationFileInLSPModes) }
+        overrideCheckbox(state::useConfigurationFileInLSPModes)
     }
     
     val runningModeInputGroup = runningModeInputGroup {

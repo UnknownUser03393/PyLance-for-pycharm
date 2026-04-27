@@ -85,32 +85,33 @@ internal val Project.pyrightLangserverExecutable: Path?
 
 internal fun Project.resolveConfigurationFileWorkspaceRoot(): Path? {
     val configurations = pyrightConfigurations
-    if (!configurations.useConfigurationFileInLspModes) {
+    
+    if (!configurations.useConfigurationFileInLSPModes) {
         return null
     }
-
-    val configFileString = configurations.configurationFile ?: return null
-    val configFilePath = configFileString.toPathOrNull() ?: return null
-
+    
+    val configFile = configurations.configurationFile?.toPathOrNull() ?: return null
+    
     val resolved = when {
         configFilePath.isAbsolute -> configFilePath
         else -> path?.resolve(configFilePath)
     } ?: return null
-
+    
     if (!resolved.toFile().exists()) {
         LOGGER.warn("Configuration file does not exist: $resolved")
         return null
     }
-
+    
     val fileName = resolved.fileName?.toString()
+    
     if (fileName != null && fileName !in SUPPORTED_LSP_CONFIG_FILE_NAMES) {
         LOGGER.warn(
             "Configuration file '$fileName' is not supported in LSP mode. " +
-                "Only ${SUPPORTED_LSP_CONFIG_FILE_NAMES.joinToString()} are recognized by Pyright language server."
+            "Only ${SUPPORTED_LSP_CONFIG_FILE_NAMES.joinToString()} are recognized by Pyright's language server."
         )
         return null
     }
-
+    
     return resolved.parent
 }
 
