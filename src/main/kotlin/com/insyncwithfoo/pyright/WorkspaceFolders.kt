@@ -26,10 +26,11 @@ private fun Project.getWorkspaceFolders(type: WorkspaceFolders): Collection<Virt
 
 internal fun Project.getPyrightWorkspaceFolders(): Collection<VirtualFile> {
     val configRoot = resolveConfigurationFileWorkspaceRoot()
+    
     if (configRoot != null) {
         LocalFileSystem.getInstance().findFileByNioFile(configRoot)?.let { return listOf(it) }
     }
-
+    
     return getWorkspaceFolders(pyrightConfigurations.workspaceFolders)
 }
 

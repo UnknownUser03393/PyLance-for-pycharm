@@ -7,9 +7,9 @@ import org.eclipse.lsp4j.InitializeParams
 import org.eclipse.lsp4j.WorkspaceFolder
 
 
+@Suppress("UnstableApiUsage")
 internal class PyrightClientFeatures : LSPClientFeatures() {
 
-    @Suppress("DEPRECATION")
     override fun initializeParams(params: InitializeParams) {
         val workspaceRoots = project.getPyrightWorkspaceFolders()
         val workspaceFolders = workspaceRoots.map { folder ->
