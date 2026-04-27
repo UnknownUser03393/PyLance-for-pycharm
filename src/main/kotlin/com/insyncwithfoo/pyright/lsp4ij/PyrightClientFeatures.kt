@@ -18,6 +18,7 @@ internal class PyrightClientFeatures : LSPClientFeatures() {
 
         params.workspaceFolders = workspaceFolders
 
+        @Suppress("DEPRECATION")
         if (workspaceRoots.size == 1) {
             val root = workspaceRoots.single()
             params.rootUri = root.toFileUriString()
