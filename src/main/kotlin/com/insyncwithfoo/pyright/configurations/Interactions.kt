@@ -93,8 +93,8 @@ internal fun Project.resolveConfigurationFileWorkspaceRoot(): Path? {
     val configFile = configurations.configurationFile?.toPathOrNull() ?: return null
     
     val resolved = when {
-        configFilePath.isAbsolute -> configFilePath
-        else -> path?.resolve(configFilePath)
+        configFile.isAbsolute -> configFile
+        else -> path?.resolve(configFile)
     } ?: return null
     
     if (!resolved.toFile().exists()) {
